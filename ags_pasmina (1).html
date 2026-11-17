@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AGS Pasmina - pilihan kerudung pasmina cantik dan nyaman untuk setiap gaya.">
+  <title>AGS Pasmina | Toko Kerudung</title>
+  <style>
+    :root{--plum:#713d5d;--rose:#d99ab0;--pink:#f8e9ef;--cream:#fffaf7;--ink:#382b33;--muted:#796d73}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink)}
+    a{color:inherit;text-decoration:none} button{font:inherit;cursor:pointer}
+    .topbar{background:var(--plum);color:white;text-align:center;padding:9px 14px;font-size:13px;letter-spacing:.3px}
+    header{position:sticky;top:0;z-index:10;background:#fffaf7ee;backdrop-filter:blur(10px);border-bottom:1px solid #f0dce4}
+    .nav{max-width:1150px;margin:auto;padding:13px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:800;color:var(--plum);font-size:21px;letter-spacing:.5px}
+    .logo{width:48px;height:48px;border-radius:50%;background:linear-gradient(145deg,#f4cbd8,#a75f7d);display:grid;place-items:center;color:white;font-family:Georgia,serif;font-size:18px;border:3px solid white;box-shadow:0 2px 10px #713d5d30}
+    .brand small{display:block;font-size:10px;letter-spacing:2px;color:var(--muted);font-weight:600;margin-top:3px}
+    .navlinks{display:flex;gap:22px;align-items:center;font-size:14px;font-weight:600}
+    .navlinks a:hover{color:#b45f83}
+    .cart-nav{border:0;background:var(--plum);color:white;padding:10px 15px;border-radius:22px}
+    .hero{max-width:1150px;margin:30px auto 48px;padding:55px 7%;border-radius:28px;background:linear-gradient(115deg,#f7e4eb 0%,#fdf4ef 58%,#edcbd8 100%);display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:25px;overflow:hidden}
+    .eyebrow{color:#a25476;text-transform:uppercase;letter-spacing:3px;font-size:12px;font-weight:700}
+    h1{font-family:Georgia,serif;font-size:clamp(38px,5vw,62px);line-height:1.06;color:var(--plum);margin:13px 0}
+    .hero p{max-width:520px;color:#66545e;line-height:1.7}
+    .primary{display:inline-block;background:var(--plum);color:white;padding:13px 22px;border-radius:25px;margin-top:12px;font-weight:700;border:0}
+    .hero-art{min-height:220px;display:grid;place-items:center}
+    .scarf-illustration{width:210px;height:210px;border-radius:48% 52% 45% 55%;background:linear-gradient(140deg,#b66f8b,#e9b8c9 52%,#f8e6eb);transform:rotate(-12deg);box-shadow:20px 20px 0 #713d5d16;display:grid;place-items:center;color:white;font:italic 35px Georgia;border:12px solid #fff8}
+    .section{max-width:1150px;margin:0 auto 55px;padding:0 22px}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin-bottom:20px}
+    h2{font: bold 32px Georgia,serif;color:var(--plum);margin:0 0 7px}
+    .sub{color:var(--muted);font-size:14px;margin:0}
+    .filters{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+    .filter{border:1px solid #e8cbd7;background:white;color:var(--plum);padding:9px 15px;border-radius:20px}
+    .filter.active,.filter:hover{background:var(--plum);color:white}
+    .products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .card{background:white;border:1px solid #f0e1e7;border-radius:18px;overflow:hidden;box-shadow:0 5px 18px #63334a0b;transition:.2s}
+    .card:hover{transform:translateY(-4px);box-shadow:0 10px 25px #63334a16}
+    .product-art{height:190px;display:grid;place-items:center;position:relative;overflow:hidden}
+    .product-art:before{content:"";width:135px;height:165px;border-radius:48% 52% 15% 15%;background:var(--fabric);transform:rotate(8deg);box-shadow:18px 7px 0 #ffffff55,-12px 8px 0 #0000000b}
+    .product-art:after{content:"";position:absolute;width:88px;height:120px;border-radius:50% 50% 10% 10%;border:3px solid #ffffff70;transform:rotate(8deg)}
+    .tag{position:absolute;top:12px;left:12px;background:#fff;color:var(--plum);font-size:11px;padding:6px 9px;border-radius:15px;font-weight:700}
+    .card-body{padding:15px}
+    .card h3{font-size:16px;margin:0 0 7px;color:#49333f}
+    .desc{font-size:12px;color:var(--muted);min-height:30px}
+    .price-row{display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:8px}
+    .price{font-weight:800;color:var(--plum)}
+    .add{border:0;background:#f5e3ea;color:var(--plum);border-radius:18px;padding:9px 12px;font-size:12px;font-weight:700}
+    .add:hover{background:var(--plum);color:white}
+    .about{background:#f7e9ee;padding:35px;border-radius:22px;display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center}
+    .about p{line-height:1.8;color:#67545e}
+    .info-box{background:white;padding:20px;border-radius:16px;line-height:1.9}
+    .cart-layout{display:grid;grid-template-columns:1fr 330px;gap:22px;align-items:start}
+    .cart-items,.checkout{background:white;border:1px solid #f0e1e7;border-radius:18px;padding:20px}
+    .cart-item{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #f3e8ec}
+    .cart-item:last-child{border-bottom:0}
+    .item-name{font-weight:700}.item-price{font-size:13px;color:var(--muted);margin-top:4px}
+    .qty{display:flex;align-items:center;gap:9px}
+    .qty button{border:1px solid #e6cbd6;background:#fff7fa;color:var(--plum);width:27px;height:27px;border-radius:50%}
+    .remove{border:0;background:none;color:#b35b75;font-size:12px}
+    .checkout h3{margin-top:0;color:var(--plum)}
+    .total{display:flex;justify-content:space-between;border-top:1px solid #f0e1e7;padding-top:15px;margin-top:15px;font-weight:800}
+    .checkout .primary{width:100%;text-align:center}
+    .empty{color:var(--muted);text-align:center;padding:30px 10px}
+    footer{background:#4e2c40;color:#fff1f5;padding:28px 22px;text-align:center;font-size:13px;line-height:1.8}
+    footer strong{font: bold 22px Georgia,serif}
+    @media(max-width:850px){.products{grid-template-columns:repeat(2,1fr)}.navlinks{gap:11px}.hero{margin:18px 14px 38px}.section{padding:0 15px}}
+    @media(max-width:620px){.nav{flex-wrap:wrap;padding:10px 14px}.navlinks{order:3;width:100%;justify-content:space-between;font-size:12px}.brand{font-size:18px}.logo{width:42px;height:42px}.hero{grid-template-columns:1fr;text-align:center;padding:35px 24px}.hero p{margin:auto}.hero-art{min-height:150px}.scarf-illustration{width:150px;height:150px;font-size:28px}.products{gap:11px}.product-art{height:145px}.card-body{padding:11px}.card h3{font-size:14px}.price-row{align-items:flex-start;flex-direction:column}.add{width:100%}.about,.cart-layout{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}h2{font-size:28px}}
+  </style>
+</head>
+<body>
+  <div class="topbar">Tampil anggun setiap hari bersama AGS Pasmina ✨</div>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="#beranda"><span class="logo">AGS</span><span>AGS PASMINA<small>BEAUTY IN EVERY FOLD</small></span></a>
+      <div class="navlinks">
+        <a href="#beranda">Beranda</a><a href="#produk">Model Pasmina</a><a href="#tentang">Tentang Toko</a><a href="#kontak">Kontak</a>
+      </div>
+      <button class="cart-nav" onclick="document.querySelector('#keranjang').scrollIntoView()">🛍️ Keranjang (<span id="cartCount">0</span>)</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div>
+        <div class="eyebrow">Koleksi pilihan untukmu</div>
+        <h1>Anggun dalam<br>Setiap Gaya.</h1>
+        <p>Temukan berbagai model pasmina yang nyaman, cantik, dan mudah dipadukan untuk menemani aktivitas sehari-hari maupun acara spesialmu.</p>
+        <a class="primary" href="#produk">Jelajahi Koleksi →</a>
+      </div>
+      <div class="hero-art"><div class="scarf-illustration">AGS</div></div>
+    </section>
+
+    <section class="section" id="produk">
+      <div class="section-head"><div><h2>Koleksi Pasmina</h2><p class="sub">Pilih model favoritmu dan masukkan ke keranjang.</p></div></div>
+      <div class="filters">
+        <button class="filter active" onclick="filterProducts('Semua',this)">Semua</button>
+        <button class="filter" onclick="filterProducts('Basic',this)">Basic</button>
+        <button class="filter" onclick="filterProducts('Premium',this)">Premium</button>
+        <button class="filter" onclick="filterProducts('Instan',this)">Instan</button>
+      </div>
+      <div class="products" id="productGrid"></div>
+    </section>
+
+    <section class="section" id="keranjang">
+      <div class="section-head"><div><h2>Keranjang Pemesanan</h2><p class="sub">Periksa pesanan sebelum mengirimkannya melalui WhatsApp.</p></div></div>
+      <div class="cart-layout">
+        <div class="cart-items" id="cartItems"><div class="empty">Keranjang masih kosong. Yuk pilih pasmina favoritmu! 💗</div></div>
+        <aside class="checkout">
+          <h3>Ringkasan Pesanan</h3>
+          <p class="sub">Jumlah barang: <strong id="summaryCount">0</strong></p>
+          <div class="total"><span>Total</span><span id="totalPrice">Rp0</span></div>
+          <button class="primary" onclick="checkout()">Pesan via WhatsApp</button>
+          <p class="sub" style="margin-top:12px">Pesanan akan dikirim ke WhatsApp toko untuk konfirmasi stok dan pembayaran.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="tentang">
+      <div class="about">
+        <div><div class="eyebrow">Kenalan dengan kami</div><h2>AGS Pasmina</h2><p>AGS Pasmina hadir untuk memberikan pilihan kerudung pasmina dengan beragam model dan gaya. Kami ingin menemani penampilanmu agar tetap nyaman, percaya diri, dan anggun setiap hari.</p></div>
+        <div class="info-box"><strong>📍 Alamat Toko</strong><br>Jl. Bojong Asih 12, Kota Bekasi<br><br><strong>💬 WhatsApp Toko</strong><br><a href="https://wa.me/6282191843395" target="_blank" rel="noopener">0821-9184-3395</a><br><br><strong>🛒 Link Pemesanan</strong><br><a href="https://wa.me/6282191843395" target="_blank" rel="noopener">Chat dan pesan melalui WhatsApp</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="kontak">
+    <strong>AGS PASMINA</strong><br>
+    Beauty in Every Fold · Jl. Bojong Asih 12, Kota Bekasi<br>
+    WhatsApp: 0821-9184-3395<br>
+    <a href="https://wa.me/6282191843395" target="_blank" rel="noopener">Klik di sini untuk pemesanan</a><br><br>
+    © 2026 AGS Pasmina. Terima kasih sudah berbelanja!
+  </footer>
+
+  <script>
+    const products = [
+      {id:1,name:"Pasmina Ceruty Baby Doll",type:"Basic",price:35000,desc:"Ringan, flowy, dan mudah dibentuk.",color:"#d7a0b4",tag:"Best Seller"},
+      {id:2,name:"Pasmina Crinkle",type:"Basic",price:30000,desc:"Tekstur cantik dan praktis tanpa disetrika.",color:"#b7a4bd",tag:"Favorit"},
+      {id:3,name:"Pasmina Silk Premium",type:"Premium",price:55000,desc:"Tampilan mewah dengan sentuhan lembut.",color:"#b9a0a0",tag:"Premium"},
+      {id:4,name:"Pasmina Diamond",type:"Premium",price:45000,desc:"Bahan bertekstur dengan kesan elegan.",color:"#c9a77e",tag:"Elegan"},
+      {id:5,name:"Pasmina Jersey",type:"Basic",price:40000,desc:"Stretchy, adem, dan nyaman digunakan.",color:"#9d9eae",tag:"Nyaman"},
+      {id:6,name:"Pasmina Kaos Instan",type:"Instan",price:38000,desc:"Praktis dipakai untuk aktivitas harian.",color:"#bd8e9c",tag:"Praktis"},
+      {id:7,name:"Pasmina Plisket",type:"Premium",price:42000,desc:"Lipatan manis untuk gaya kekinian.",color:"#d2b0a2",tag:"Trendy"},
+      {id:8,name:"Pasmina Instan Daily",type:"Instan",price:35000,desc:"Tinggal pakai, simpel dan tetap rapi.",color:"#a9b5a6",tag:"Daily"}
+    ];
+    let cart = [];
+    const rupiah = n => new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(n);
+
+    function renderProducts(list=products){
+      document.getElementById('productGrid').innerHTML = list.map(p=>`
+        <article class="card">
+          <div class="product-art" style="--fabric:${p.color}"><span class="tag">${p.tag}</span></div>
+          <div class="card-body"><h3>${p.name}</h3><div class="desc">${p.desc}</div>
+            <div class="price-row"><span class="price">${rupiah(p.price)}</span><button class="add" onclick="addToCart(${p.id})">+ Keranjang</button></div>
+          </div>
+        </article>`).join('');
+    }
+    function filterProducts(type,button){
+      document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));button.classList.add('active');
+      renderProducts(type==='Semua'?products:products.filter(p=>p.type===type));
+    }
+    function addToCart(id){
+      const found=cart.find(i=>i.id===id);
+      if(found)found.qty++;else cart.push({id,qty:1});
+      renderCart();
+    }
+    function changeQty(id,delta){
+      const item=cart.find(i=>i.id===id);if(!item)return;
+      item.qty+=delta;if(item.qty<=0)cart=cart.filter(i=>i.id!==id);
+      renderCart();
+    }
+    function removeItem(id){cart=cart.filter(i=>i.id!==id);renderCart()}
+    function renderCart(){
+      const count=cart.reduce((s,i)=>s+i.qty,0);
+      const total=cart.reduce((s,i)=>s+i.qty*products.find(p=>p.id===i.id).price,0);
+      document.getElementById('cartCount').textContent=count;
+      document.getElementById('summaryCount').textContent=count;
+      document.getElementById('totalPrice').textContent=rupiah(total);
+      const box=document.getElementById('cartItems');
+      if(!cart.length){box.innerHTML='<div class="empty">Keranjang masih kosong. Yuk pilih pasmina favoritmu! 💗</div>';return}
+      box.innerHTML=cart.map(i=>{const p=products.find(x=>x.id===i.id);return `
+        <div class="cart-item"><div><div class="item-name">${p.name}</div><div class="item-price">${rupiah(p.price)} × ${i.qty}</div><button class="remove" onclick="removeItem(${p.id})">Hapus</button></div>
+        <div class="qty"><button onclick="changeQty(${p.id},-1)">−</button><strong>${i.qty}</strong><button onclick="changeQty(${p.id},1)">+</button></div></div>`}).join('');
+    }
+    function checkout(){
+      if(!cart.length){alert('Keranjang masih kosong. Silakan pilih produk terlebih dahulu.');return}
+      const lines=cart.map(i=>{const p=products.find(x=>x.id===i.id);return `- ${p.name} (${i.qty} x ${rupiah(p.price)}) = ${rupiah(i.qty*p.price)}`});
+      const total=cart.reduce((s,i)=>s+i.qty*products.find(p=>p.id===i.id).price,0);
+      const message=`Halo AGS Pasmina, saya ingin memesan:%0A${encodeURIComponent(lines.join('\n'))}%0A%0ATotal: ${encodeURIComponent(rupiah(total))}%0A%0AMohon info ketersediaan stok dan cara pembayarannya. Terima kasih.`;
+      window.open(`https://wa.me/6282191843395?text=${message}`,'_blank');
+    }
+    renderProducts();renderCart();
+  </script>
+</body>
+</html>
